@@ -4,6 +4,7 @@ var request = require('request');
 var pwd = process.env.PWD;
 var tmp = pwd + '/tmp';
 
+console.log('tmp:' + tmp)
 
 
 fs.readdir(tmp, function(err, data) {
@@ -24,7 +25,7 @@ fs.readdir(tmp, function(err, data) {
                 if (!err && response.statusCode == 200) {
                     // console.log('response:' + JSON.stringify(response));
 
-                    console.log(body)
+                    console.log('返回值：' + body)
                     var date = new Date();
                     var log = date + '  ' + body + '\n';
                     fs.appendFile('log.txt', log, function(err) {
@@ -32,6 +33,7 @@ fs.readdir(tmp, function(err, data) {
                     })
                 }
             })
+
         }
     }
 })
@@ -69,7 +71,7 @@ fs.readdir(tmp, function(err, data) {
 //     if (err) {
 //         console.log('err:' + err);
 //     } else {
-//     	var json = JSON.parse(data);
+//      var json = JSON.parse(data);
 //         console.log(json.name);
 //     }
 // });
